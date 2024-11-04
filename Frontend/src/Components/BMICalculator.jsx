@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { toast } from "react-toastify";
 
 const BMICalculator = () => {
@@ -11,7 +11,7 @@ const BMICalculator = () => {
     e.preventDefault();
 
     if (!height || !weight || !gender) {
-      toast.error("Please enter valid height, weight and gender.");
+      toast.error("Please enter valid height, weight, and gender.");
       return;
     }
 
@@ -21,19 +21,19 @@ const BMICalculator = () => {
 
     if (bmiValue < 18.5) {
       toast.warning(
-        "You are underweight. Consider seeking advide from a healthcare provider."
+        "You are underweight. Consider seeking advice from a healthcare provider."
       );
     } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
       toast.success(
-        "You have normal weight. Keep maintaing a healthy lifestyle."
+        "You have normal weight. Keep maintaining a healthy lifestyle."
       );
     } else if (bmiValue >= 25 && bmiValue < 29.9) {
       toast.warning(
-        "You are overweight. Consider seeking advide from a healthcare provider."
+        "You are overweight. Consider seeking advice from a healthcare provider."
       );
     } else {
       toast.error(
-        "You are in the obese range. It is recommended to seek advice from a healthcare specialist.."
+        "You are in the obese range. It is recommended to seek advice from a healthcare specialist."
       );
     }
   };
@@ -67,6 +67,7 @@ const BMICalculator = () => {
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
+                required
               >
                 <option value="">Select Gender</option>
                 <option value="Male">Male</option>
@@ -74,6 +75,9 @@ const BMICalculator = () => {
               </select>
             </div>
             <button type="submit">Calculate BMI</button>
+            {bmi && ( // Conditionally render BMI value directly after button
+              <h2>Your BMI: {bmi}</h2>
+            )}
           </form>
         </div>
         <div className="wrapper">
