@@ -16,7 +16,7 @@ const Contact = () => {
     
     try {
         const { data } = await axios.post(
-            "https://gymsite-2.onrender.com/send/email", // Ensure a comma after the URL
+            "https://gymsite-2.onrender.com/send/mail", // Ensure a comma after the URL
             {
                 name,
                 email,
